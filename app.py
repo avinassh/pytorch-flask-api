@@ -17,10 +17,10 @@ from flask import Flask, jsonify, request
 # img = mpimg.imread(file_stream)
 # # whatever you need to do
 
-# with open(".aws/access_keys.json") as f:
-#     json_loaded = json.load(f)
-#     ACCESS_KEY = json_loaded["access_key"]
-#     SECRET_ACCESS_KEY = json_loaded["secret_access_key"]
+with open(".aws/access_keys.json") as f:
+    json_loaded = json.load(f)
+    ACCESS_KEY = json_loaded["access_key"]
+    SECRET_ACCESS_KEY = json_loaded["secret_access_key"]
 
 
 app = Flask(__name__)
