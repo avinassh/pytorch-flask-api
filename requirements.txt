@@ -1,2 +1,2 @@
-Flask==1.0.3
-torchvision==0.3.0
+Flask==2.0.3
+torchvision==0.14.0

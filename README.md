@@ -21,7 +21,21 @@ From another tab, send the image file in a request:
 
     curl -X POST -F file=@cat_pic.jpeg http://localhost:5000/predict
 
+## Deploy with Docker
+
+Build image
+
+    docker build --network=host -t pytorch_flask:v0 .
+
+Run Docker
+
+    docker run --name pytorch_flask -p 5000:5000 -v ~/<your path>/pytorch-flask-api-master/:/docker_demo -d pytorch_flask:v0 python app.py
+
+send the image file in a request:
+
+    curl -X POST -F file=@cat_pic.jpeg http://localhost:5000/predict
 
 ## License
 
 The mighty MIT license. Please check `LICENSE` for more details.
+
