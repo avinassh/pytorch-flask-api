@@ -29,7 +29,7 @@ Build image
 
 Run Docker
 
-    docker run --name pytorch_flask -p 5000:5000 -v ~/<your path>/pytorch-flask-api-master/:/docker_demo -d pytorch_flask:v0 python app.py
+    docker run --name pytorch_flask -p 5000:5000 -v <your path>/pytorch-flask-api-master/:/docker_demo -d pytorch_flask:v0
 
 send the image file in a request:
 
