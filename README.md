@@ -4,23 +4,6 @@ This repo contains a sample code to show how to create a Flask API server by dep
 
 If you'd like to learn how to deploy to Heroku, then check [this repo](https://github.com/avinassh/pytorch-flask-api-heroku).
 
-
-## How to 
-
-Install the dependencies:
-
-    pip install -r requirements.txt
-
-
-Run the Flask server:
-
-    FLASK_ENV=development FLASK_APP=app.py flask run
-
-
-From another tab, send the image file in a request:
-
-    curl -X POST -F file=@cat_pic.jpeg http://localhost:5000/predict
-
 ## Deploy with Docker
 
 Build image
@@ -29,11 +12,27 @@ Build image
 
 Run Docker
 
-    docker run --name pytorch_flask -p 5000:5000 -v <your path>/pytorch-flask-api-master/:/docker_demo -d pytorch_flask:v0
+    docker run --name pytorch_flask -p 5000:5000 -d pytorch_flask:v0
 
 send the image file in a request:
 
     curl -X POST -F file=@cat_pic.jpeg http://localhost:5000/predict
+
+
+## Benchmarking with Apache Bench
+
+Remove Docker:
+
+    docker stop pytorch_flask
+    docker rm pytorch_flask
+
+Run Benchmark Code:
+
+    docker run --name pytorch_flask -p 5000:5000 -d pytorch_flask:v0 python benchmark.py
+
+Benchmarking:
+
+    ab -n 100 -c 10  http://localhost:5000/predict
 
 ## License
 

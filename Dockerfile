@@ -1,6 +1,6 @@
 FROM python:3.8
 
-WORKDIR ./docker_demo
+WORKDIR /docker_demo
  
 ADD . .
 
